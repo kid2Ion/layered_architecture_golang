@@ -12,7 +12,6 @@ func main() {
 	files := http.FileServer(rice.MustFindBox("public").HTTPBox())
 
 	e.GET("/", index)
-	// urlから/staticを削除して、残りのファイル名をpublic配下から返却
 	e.GET("/static/*", echo.WrapHandler(http.StripPrefix("/static/", files)))
 
 	e.Logger.Fatal(e.Start(":8080"))
