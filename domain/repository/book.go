@@ -11,3 +11,5 @@ import (
 type BookRepository interface {
 	GetAll(context.Context) ([]*model.Book, error)
 }
+
+//このinterfaceは依存性を逆転させるためのもの（本来はここに具体的な処理を書く）
